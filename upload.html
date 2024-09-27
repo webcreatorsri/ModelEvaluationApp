@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Dataset</title>
+</head>
+<body>
+    <h2>Upload Dataset</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="domain">Domain:</label>
+        <input type="text" name="domain" required>
+        <br>
+        <label for="dataset">Upload Dataset (CSV):</label>
+        <input type="file" name="dataset" accept=".csv" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body

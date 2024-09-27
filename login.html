@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color:white; /* Light blue background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background-color: rgb(172, 229, 249);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 123, 255, 0.7); /* Brighter shadow */
+            text-align: center;
+            width: 350px;
+            transition: transform 0.3s;
+        }  
+
+        .container:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+
+        h1 {
+            font-size: 26px; /* Title font size */
+            margin-bottom: 20px;
+            color: #726ccb; /* Blue color for the title */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #ba0dd5; /* Slightly darker label color */
+        }
+        
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px; /* Increased font size for input fields */
+            border: 1px solid #5fe9f6;
+            border-radius: 6px;
+            border-color: rgb(7, 8, 8);
+            transition: border-color 0.3s, box-shadow 0.3s, color 0.3s; /* Animation for input focus */
+            color: #333; /* Text color for input fields */
+        }
+
+        input[type="email"]:focus, input[type="password"]:focus {
+            border-color: rgb(7, 8, 8); /* Change border color on focus */
+            box-shadow: 0 0 30px rgba(11, 95, 250, 0.5); /* Light blue shadow */
+            color: #0277bd; /* Change text color on focus */
+            animation: pulse 0.5s ease; /* Animation effect */
+        }
+
+        button {
+            background-color: #0277bd; /* Button color */
+            color: white; /* Text color for button */
+            padding: 12px;
+            border-color: rgb(17, 201, 230);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.2s; /* Animation for hover */
+        }
+
+        button:hover {
+            background-color: #01579b; /* Darker shade on hover */
+            transform: scale(1.05); /* Slight grow effect on hover */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                width: 90%; /* Responsive width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST">
+            <label for="username">Email:</label>
+            <input type="email" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+

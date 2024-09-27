@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Evaluation Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
+        
+
+        <!-- Existing Results Section -->
+        <h2>Model Evaluation Results</h2>
+        <p><strong>Best Overall Model: {{ best_model }}</strong></p>
+        
+        <!-- Display Domain Recommendations -->
+        <h3>Model Recommendation for Domain: {{ domain_recommendation }}</h3>
+        <p>{{ "Recommended model for this domain based on research." }}</p>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Metrics</th>
+                    <th>Pie Chart</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for model, data in results.items() %}
+                <tr>
+                    <td>{{ model }}</td>
+                    <td>
+                        <ul>
+                            {% for metric, value in data.metrics.items() %}
+                            <li>{{ metric }}: {{ value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>
+                        {% if data.pie_chart %}
+                        <img src="data:image/png;base64,{{ data.pie_chart }}" alt="Pie Chart">
+                        {% else %}
+                        <span>Error generating chart: {{ data.metrics.Error }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('download') }}" class="btn btn-primary">Download Results as CSV</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Upload</a>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+        
